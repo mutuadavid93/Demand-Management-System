@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demand Manager -- Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/mystyles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        
+        
+        <section class="container">
+            <div class="modal fade" id="mymodal">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class=" form-control-label" for="poperSkillsets">Skillset</label>
+                                    <div class="">
+                                        <select class="form-control" id="poperSkillsets">
+                                            <option>Choose...</option>
+                                            <option>Graphics Designer</option>
+                                            <option>SharePoint Developer</option>
+                                            <option>UX specialist</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div><!-- col-sm-6 -->
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class=" form-control-label" for="inputResource">Resource</label>
+                                    <div class="">
+                                        <input class="form-control" type="text" id="inputResource" placeholder="Resource" />
+                                    </div>
+                                </div>
+                            </div><!-- col-sm-6 -->
+                        </div>
+                        
+                    </div><!-- modal-body -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">Close</button>
+                            <button type="button" id="addPopupBtn" class="btn btn-sm btn-primary">Add</button>
+                        </div><!-- modal-footer -->
+                  </div>
+                </div>
+            </div><!-- #mymodal -->
+        </section>
+        
+        <section class="container" id="newProjRequest">
+            <p  class="text-center">New Project Request Details</p>
+            <div class="row">
+                <div class="col-xl-6 justify-content-xl-center">
+                    <div id="leftProjFields">
+                        <div class="form-group">
+                            <label class=" form-control-label" for="inputProjTitle">Project Title</label>
+                            <div class="">
+                                <input class="form-control" type="text" id="inputProjTitle" placeholder="Project Title" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class=" form-control-label" for="inputProjOwner">Project Owner</label>
+                            <div class="">
+                                <input class="form-control" type="text" id="inputProjOwner" placeholder="Project Owner" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class=" form-control-label" for="projPillars">Pillars driving project</label>
+                            <div class="">
+                                <select class="form-control" id="projPillars">
+                                    <option>Choose...</option>
+                                    <option>Pillar One</option>
+                                    <option>Pillar Two</option>
+                                    <option>Pillar Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- col-xl-6 -->
+                
+                <div class="col-xl-6">
+                    <div class="form-group">
+                            <label class="form-control-label" for="inputProjSponsor">Project Sponsor</label>
+                            <div class="">
+                                <input class="form-control" type="text" id="inputProjSponsor" placeholder="Project Sponsor" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class=" form-control-label" for="attachURS">Attach a URS File</label>
+                            <div class="">
+                                <input id="attachURS" type="file" class="file" />
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label class=" form-control-label" for="Prioritization">Prioritization</label>
+                            <div class="">
+                                <select class="form-control" id="Prioritization">
+                                    <option>Choose...</option>
+                                    <option>High</option>
+                                    <option>Medium</option>
+                                    <option>Low</option>
+                                </select>
+                            </div>
+                        </div>
+                </div><!-- col-xl-6 -->
+            </div>
+        </section><!-- container #newProjRequest -->
+        
+        <br />
+        
+        <section class="container" id="tradeOff">
+            <p class="text-center">User's Previous Projects</p>
+            <div class="row">
+                <div class="col-xl-12">
+                    <table class="table table-sm">
+                          <thead class="bg-success text-white">
+                              <tr>
+                                  <th scope="column">Project Title</th> <th scope="column">Date Created</th>
+                                  <th scope="column">Start Date</th> <th scope="column">Priority</th>
+                                  <th scope="column">Status</th> <th scope="column">Tradeoff</th>
+                              </tr>
+                          </thead>
+
+                          <tbody>
+                              <tr>
+                                  <th scope="row">Project 1</th> <td>05/21/2017</td>
+                                  <td>05/24/2017</td> <td>High</td>
+                                  <td>URS Pending</td> 
+                                  <td>
+                                        No
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Project 2</th> <td>05/21/2017</td>
+                                  <td>05/24/2017</td> <td>Critical</td>
+                                  <td>Pre-analysis</td> 
+                                  <td>
+                                        No
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Project 3</th> <td>05/21/2017</td>
+                                  <td>05/24/2017</td> <td>Low</td>
+                                  <td>Business Analysis</td> 
+                                  <td>
+                                       Yes
+                                  </td>
+                              </tr>
+                              
+                          </tbody>
+                      </table>
+                </div>
+            </div><!-- row -->
+        </section><!-- container #tradeOff -->
+        
+        <p class="lead">&nbsp;</p>
+        
+        <section class="container" id='DmagrComments'>
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="form-group">
+                        <label class=" form-control-label" for="pre-analysis">Pre-analysis Comments</label>
+                        <div class="">
+                            <textarea rows="5" class="form-control" id="pre-analysis"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button role="button" id="email_preanalysis" 
+                            class="btn btn-primary"><i class="fa fa-envelope-o"></i> Email</button>
+                </div><!-- col-xl-6 -->
+                
+                <div class="col-xl-6">
+                    <div class="form-group">
+                        <label class=" form-control-label" for="general_comments">General Comments</label>
+                        <div class="">
+                            <textarea rows="5" class="form-control" id="general_comments"></textarea>
+                        </div>
+                    </div>
+                </div><!-- col-xl-6 -->
+            </div>
+        </section><!-- container #DmagrComments -->
+        
+        <br />
+        
+         <section class="container" id="skillSets">
+             <p>Skillsets Required</p>
+            <div class="row">
+                <div class="col-xl-12">
+                    <table class="table table-sm table-bordered">
+                          <thead class="bg-success text-white">
+                              <tr>
+                                  <th scope="column">Skillset</th> <th scope="column">Resource</th>
+                              </tr>
+                          </thead>
+
+                          <tbody id="skillSetsBody">
+                              <tr>
+                                  <th scope="row">System Architecture</th> <td>Resource 1</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Analytics</th> <td>Resource 2</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                    
+                    <button class="btn btn-primary 
+                            float-xl-right" id="add_resource" ><i class="fa fa-plus"></i> &nbsp;Add</button> 
+                </div>
+            </div><!-- row -->
+        </section><!-- container #skillSets -->
+        
+        
+        <section class="container" id="demandMgr_Signature">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="form-group">
+                            <label class=" form-control-label" for="requestStatus">Request Status</label>
+                            <div class="">
+                                <select class="form-control" id="requestStatus">
+                                    <option>Choose...</option>
+                                    <option>Closed</option>
+                                    <option>Abandoned</option>
+                                    <option>URs pending</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+                    <button class="btn btn-danger 
+                            "><i class="fa fa-close"></i> &nbsp;Close</button> 
+                </div><!-- col-xl-6 -->
+                
+                <div class="col-xl-6">
+                    <div class="form-group">
+                        <label class=" form-control-label" for="dmand_mgr">Demand Manager</label>
+                        <div class="">
+                            <input class="form-control" type="text" id="dmand_mgr" placeholder="Full Name" />
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-danger 
+                            float-xl-right"><i class="fa fa-thumbs-down"></i> &nbsp;Decline</button> 
+                            &nbsp; 
+                    <button class="btn btn-success 
+                            float-xl-right"><i class="fa fa-thumbs-up"></i> &nbsp;Approve</button> 
+                </div><!-- col-xl-6 -->
+            </div>
+        </section><!-- container #demandMgr_Signature -->
+        
+        
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" crossorigin="anonymous"></script>    
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/myscript.js" type="text/javascript"></script>
+    </body>
+</html>

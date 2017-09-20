@@ -1,0 +1,86 @@
+<html>  
+  <head>  
+    <script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>  
+    <script language="javascript" type="text/javascript">  
+        var fileInput;  
+        $(document).ready(function()   
+        {  
+            fileInput = $("#getFile");  
+            SP.SOD.executeFunc('sp.js', 'SP.ClientContext', registerClick);  
+        });  
+  
+        function registerClick()   
+        {  
+            //Register File Upload Click Event  
+            $("#addFileButton").click(readFile);  
+        }  
+        var arrayBuffer;  
+  
+        function readFile()   
+        {  
+            //Get File Input Control and read th file name  
+            var element = document.getElementById("getFile");  
+            var file = element.files[0];  
+            var parts = element.value.split("\\");  
+            var fileName = parts[parts.length - 1];  
+            //Read File contents using file reader  
+            var reader = new FileReader();  
+            reader.onload = function(e) {  
+                uploadFile(e.target.result, fileName);  
+            }  
+            reader.onerror = function(e)   
+            {  
+                alert(e.target.error);  
+            }  
+            reader.readAsArrayBuffer(file);  
+        }  
+        var attachmentFiles, clientContext, createInfo;  
+  
+        function uploadFile(arrayBuffer, fileName)   
+        {  
+            //Get Client Context and Web object.  
+            clientContext = new SP.ClientContext();  
+            var oWeb = clientContext.get_web();  
+  
+            //Get list and Attachment folder where the attachment of a particular list item is stored.  
+            var oList = oWeb.get_lists().getByTitle('NewList');  
+            var attachmentFolder = oWeb.getFolderByServerRelativeUrl('Lists/NewList/Attachments/1');  
+  
+            //Convert the file contents into base64 data  
+            var bytes = new Uint8Array(arrayBuffer);  
+            var i, length, out = '';  
+            for (i = 0, length = bytes.length; i < length; i += 1) {  
+                out += String.fromCharCode(bytes[i]);  
+            }  
+            var base64 = btoa(out);  
+            //Create FileCreationInformation object using the read file data  
+            createInfo = new SP.FileCreationInformation();  
+            createInfo.set_content(base64);  
+            createInfo.set_url(fileName);  
+  
+            //Add the file to the list item  
+            attachmentFiles = attachmentFolder.get_files().add(createInfo);  
+  
+            //Load client context and execute the batch  
+            clientContext.load(oList);  
+            clientContext.load(attachmentFiles);  
+            clientContext.executeQueryAsync(QuerySuccess, QueryFailure);  
+        }  
+  
+        function QuerySuccess()   
+        {  
+            console.log("Attachment added successfuly ");  
+        }  
+  
+        function QueryFailure(sender, args)   
+        {  
+            console.log('Request failed with error message - ' + args.get_message() + ' . Stack Trace - ' + args.get_stackTrace());  
+        }  
+    </script>  
+</head>  
+  
+<body>  
+    <input id="getFile" type="file" /><br />  
+    <input id="addFileButton" type="button" value="Upload" />  
+</body>  
+<html> 

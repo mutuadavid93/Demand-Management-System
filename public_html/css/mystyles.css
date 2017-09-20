@@ -1,0 +1,19 @@
+
+/* 
+    Created on : Sep 6, 2017, 8:44:02 AM
+    Author     : David Mutua
+*/
+
+.headlines {
+    padding: .025rem 0;
+    background-color: #28A745;
+    color: #FFFFFF;
+    font-size: 0.025rem;
+}
+
+#skillSets>p ,
+#newProjRequest>p ,
+#tradeOff>p 
+{
+    font-size: 1.10rem;
+}
